@@ -6,6 +6,7 @@ target 'flix' do
   use_frameworks!
 
   # Pods for flix
+  pod 'AlamofireImage', '~> 3.3'
 
   target 'flixTests' do
     inherit! :search_paths

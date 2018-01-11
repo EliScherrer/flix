@@ -7,43 +7,30 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class NowPlayingViewController: UIViewController, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var movies: [[String: Any]] = []
+    var refreshControl: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(NowPlayingViewController.didPullToRefresh(_:)), for: .valueChanged)
+        tableView.insertSubview(refreshControl, at: 0)
+        
         tableView.dataSource = self
-
-        let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
+        fetchNowPlaying()
+        
+    }
     
-        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData , timeoutInterval: 10)
-        
-        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
-        
-        let task = session.dataTask(with: request) { (data, response, error) in
-            if let error = error {
-                print(error.localizedDescription)
-            }
-            else if let data = data {
-                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                
-                let movies = dataDictionary["results"] as! [[String: Any]]
-                self.movies = movies
-//                for movie in movies {
-//                    let title = movie["title"] as! String
-//                    print(title)
-//                }
-                
-            }
-        }
-        
-        task.resume()
-        
+    @objc func didPullToRefresh(_ refreshControl: UIRefreshControl) {
+        fetchNowPlaying()
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -62,6 +49,10 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
         cell.titleLabel.text = title
         cell.overviewLabel.text = overview
         
+        let posterPath = "https://image.tmdb.org/t/p/w500" + (movie["poster_path"] as! String)
+        let posterURL = URL(string: posterPath)!
+        cell.posterImageView.af_setImage(withURL: posterURL )
+        
         return cell
     }
     
@@ -70,6 +61,31 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    public func fetchNowPlaying() {
+        self.activityIndicator.startAnimating()
+        
+        let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
+        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData , timeoutInterval: 10)
+        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+        let task = session.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            else if let data = data {
+                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                
+                let movies = dataDictionary["results"] as! [[String: Any]]
+                self.movies = movies
+                self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
+                self.activityIndicator.stopAnimating()
+                
+            }
+        }
+        
+        task.resume()
     }
     
 

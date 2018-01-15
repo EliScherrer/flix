@@ -28,15 +28,17 @@ The following **additional** user stories are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. select now playing default by region 
+2. select a theater near you and display movies based on that
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-![Imgur](https://imgur.com/8TimNLF.gif)
+![Imgur](https://i.imgur.com/lnq0xMp.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
+
+n/a

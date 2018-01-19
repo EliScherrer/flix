@@ -34,7 +34,7 @@ class DetailViewController: UIViewController {
             
             //adjust overview label size and scroll view if neccessary
             overviewLabel.sizeToFit()
-            let contentHeight = overviewLabel.frame.height + 378
+            let contentHeight = overviewLabel.frame.height + 390
             let contentWidth = scrollView.bounds.width
             scrollView.contentSize = CGSize(width: contentWidth, height: contentHeight)
 

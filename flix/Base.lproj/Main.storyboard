@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Movies-->
+        <!--Now Playing-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="NowPlayingViewController" customModule="flix" customModuleProvider="target" sceneMemberID="viewController">
@@ -69,7 +69,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Movies" id="NuZ-QY-a9A"/>
+                    <navigationItem key="navigationItem" title="Now Playing" id="NuZ-QY-a9A"/>
                     <connections>
                         <outlet property="activityIndicator" destination="fT7-ST-JBI" id="1IO-1Z-TN8"/>
                         <outlet property="tableView" destination="eqB-vd-ga3" id="Cwm-9G-PPj"/>
@@ -130,7 +130,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jeN-SH-vtB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1476" y="37.331334332833585"/>
+            <point key="canvasLocation" x="1999" y="842"/>
         </scene>
         <!--Now Playing-->
         <scene sceneID="vyK-h0-mmW">
@@ -185,6 +185,7 @@
                                         </view>
                                         <connections>
                                             <outlet property="posterImageView" destination="E8W-Cn-RLr" id="ubI-u0-NkJ"/>
+                                            <segue destination="Nts-oS-jnJ" kind="show" id="LBm-jv-nMU"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -259,19 +260,23 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="mP2-nz-gWC" customClass="PosterCell" customModule="flix" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PosterCell" id="Vlj-UW-bkW" customClass="PosterCell" customModule="flix" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="163" height="207"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="163" height="207"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ug5-aH-INB">
-                                                    <rect key="frame" x="0.0" y="0.0" width="163" height="207"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C1A-nf-g0N">
+                                                    <rect key="frame" x="-1" y="-1" width="163" height="208"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
+                                        <connections>
+                                            <outlet property="posterImageView" destination="C1A-nf-g0N" id="PKd-NX-qaz"/>
+                                            <segue destination="Nts-oS-jnJ" kind="show" id="29g-f2-GGJ"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -313,4 +318,7 @@
         <image name="superhero_tabbar_item" width="21" height="23"/>
         <image name="ticket_tabbar_icon" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="29g-f2-GGJ"/>
+    </inferredMetricsTieBreakers>
 </document>

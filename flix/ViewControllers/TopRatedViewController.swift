@@ -19,7 +19,17 @@ class TopRatedViewController: UIViewController, UICollectionViewDataSource {
         super.viewDidLoad()
         
         collectionView.dataSource = self
+        
+        //programatically setup the layout/spacing/size of cells/images
+        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.minimumInteritemSpacing = 5
+        layout.minimumLineSpacing = 5
+        let cellsPerLine: CGFloat = 2
+        let spacingTotal = layout.minimumInteritemSpacing * (cellsPerLine - 1)
+        let width = (collectionView.frame.size.width / cellsPerLine) - (spacingTotal / cellsPerLine)
+        layout.itemSize = CGSize(width: width, height: width * 3 / 2)
 
+        fetchTopRated()
 
     }
 
@@ -73,6 +83,16 @@ class TopRatedViewController: UIViewController, UICollectionViewDataSource {
         task.resume()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let cell = sender as! UICollectionViewCell
+        if let indexPath = collectionView.indexPath(for: cell ) {
+            let movie = movies[indexPath.item]
+            let detailViewController = segue.destination as! DetailViewController
+            detailViewController.movie = movie
+        }
+        
+    }
+
     
     
     

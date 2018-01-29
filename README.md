@@ -115,7 +115,6 @@ The following **optional** user stories are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+![Imgur](https://i.imgur.com/W7kYDK9.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
-

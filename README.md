@@ -102,13 +102,13 @@ Time spent: **X** hours spent in total
 The following **required** user stories are complete:
 
 - The following screens use AutoLayout to adapt to various orientations and screen sizes
-   - [ ] Movie feed view (+3pt)
-   - [ ] Detail view (+2pt)
+   - [X] Movie feed view (+3pt)
+   - [X] Detail view (+2pt)
 
 The following **optional** user stories are implemented:
 
-- [ ] Dynamic Height Cells (+1)
-- [ ] Collection View AutoLayout (+2)
+- [X] Dynamic Height Cells (+1)
+- [X] Collection View AutoLayout (+2)
 
 
 ## Video Walkthrough

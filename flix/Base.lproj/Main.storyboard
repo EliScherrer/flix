@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -105,55 +106,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SVA-yO-mGt">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8JU-F3-aHJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="267"/>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gF7-BX-nnm">
-                                        <rect key="frame" x="16" y="163" width="123" height="196"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Movie Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdv-Jg-Rgp" customClass="TopAlignedLabel" customModule="flix" customModuleProvider="target">
-                                        <rect key="frame" x="141" y="277" width="226" height="67"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="in0-TX-dU9">
-                                        <rect key="frame" x="252" y="338" width="113" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Overview" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXh-Ii-dhK" customClass="TopAlignedLabel" customModule="flix" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="378" width="343" height="86"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Release Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0TI-1x-Vud">
-                                        <rect key="frame" x="141" y="338" width="105" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gF7-BX-nnm">
+                                <rect key="frame" x="16" y="189" width="123" height="196"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="8JU-F3-aHJ" secondAttribute="trailing" id="GJW-V9-gc2"/>
-                                    <constraint firstItem="8JU-F3-aHJ" firstAttribute="leading" secondItem="SVA-yO-mGt" secondAttribute="leading" id="bDV-xh-PAK"/>
-                                    <constraint firstItem="8JU-F3-aHJ" firstAttribute="top" secondItem="SVA-yO-mGt" secondAttribute="top" id="bhr-gd-SMz"/>
+                                    <constraint firstAttribute="width" constant="123" id="KwA-6U-uH7"/>
+                                    <constraint firstAttribute="height" constant="196" id="NxL-9v-VYD"/>
                                 </constraints>
-                            </scrollView>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdv-Jg-Rgp" customClass="TopAlignedLabel" customModule="flix" customModuleProvider="target">
+                                <rect key="frame" x="147" y="294.5" width="220" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXh-Ii-dhK" customClass="TopAlignedLabel" customModule="flix" customModuleProvider="target">
+                                <rect key="frame" x="16" y="393" width="343" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0TI-1x-Vud">
+                                <rect key="frame" x="147" y="332.5" width="105" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8JU-F3-aHJ">
+                                <rect key="frame" x="0.0" y="64" width="375" height="222.5"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="in0-TX-dU9">
+                                <rect key="frame" x="257" y="333" width="34.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="8JU-F3-aHJ" firstAttribute="height" secondItem="6x6-Fk-Fbz" secondAttribute="height" multiplier="1:3" id="0sQ-Ai-uO1"/>
+                            <constraint firstItem="0TI-1x-Vud" firstAttribute="leading" secondItem="gF7-BX-nnm" secondAttribute="trailing" constant="8" id="0kf-nh-ZbE"/>
+                            <constraint firstItem="PXh-Ii-dhK" firstAttribute="top" secondItem="gF7-BX-nnm" secondAttribute="bottom" constant="8" id="5Uk-HT-BAz"/>
+                            <constraint firstItem="gF7-BX-nnm" firstAttribute="leading" secondItem="C05-Ea-Ucq" secondAttribute="leading" constant="16" id="6uS-Vx-wVL"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="PXh-Ii-dhK" secondAttribute="bottom" constant="8" id="H0r-S5-566"/>
+                            <constraint firstItem="C05-Ea-Ucq" firstAttribute="trailing" secondItem="PXh-Ii-dhK" secondAttribute="trailing" constant="16" id="Htx-Eo-t2U"/>
+                            <constraint firstItem="8JU-F3-aHJ" firstAttribute="leading" secondItem="C05-Ea-Ucq" secondAttribute="leading" id="Kbj-i1-7xb"/>
+                            <constraint firstItem="0TI-1x-Vud" firstAttribute="top" secondItem="kdv-Jg-Rgp" secondAttribute="bottom" constant="8" id="MDS-MJ-lgx"/>
+                            <constraint firstItem="kdv-Jg-Rgp" firstAttribute="top" secondItem="8JU-F3-aHJ" secondAttribute="bottom" constant="8" id="NHS-Zi-Vwe"/>
+                            <constraint firstItem="C05-Ea-Ucq" firstAttribute="trailing" secondItem="kdv-Jg-Rgp" secondAttribute="trailing" constant="8" id="Y0n-Am-N1F"/>
+                            <constraint firstItem="8JU-F3-aHJ" firstAttribute="height" secondItem="6x6-Fk-Fbz" secondAttribute="height" multiplier="1:3" id="deb-OF-Ylf"/>
+                            <constraint firstItem="in0-TX-dU9" firstAttribute="centerY" secondItem="0TI-1x-Vud" secondAttribute="centerY" id="h0E-db-yIG"/>
+                            <constraint firstItem="gF7-BX-nnm" firstAttribute="centerY" secondItem="8JU-F3-aHJ" secondAttribute="bottom" id="nLF-Bx-pRd"/>
+                            <constraint firstItem="in0-TX-dU9" firstAttribute="leading" secondItem="0TI-1x-Vud" secondAttribute="trailing" constant="5" id="pYK-5I-6Ed"/>
+                            <constraint firstItem="8JU-F3-aHJ" firstAttribute="trailing" secondItem="C05-Ea-Ucq" secondAttribute="trailing" id="qxK-qs-rnP"/>
+                            <constraint firstItem="PXh-Ii-dhK" firstAttribute="leading" secondItem="C05-Ea-Ucq" secondAttribute="leading" constant="16" id="rwH-Ww-R7r"/>
+                            <constraint firstItem="8JU-F3-aHJ" firstAttribute="top" secondItem="C05-Ea-Ucq" secondAttribute="top" id="u6s-cY-SAT"/>
+                            <constraint firstItem="kdv-Jg-Rgp" firstAttribute="leading" secondItem="gF7-BX-nnm" secondAttribute="trailing" constant="8" id="wPy-VC-VV5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="C05-Ea-Ucq"/>
                     </view>
@@ -162,7 +168,6 @@
                         <outlet property="overviewLabel" destination="PXh-Ii-dhK" id="SpD-ky-rrg"/>
                         <outlet property="posterImageView" destination="gF7-BX-nnm" id="UsJ-AF-iQg"/>
                         <outlet property="releaseDateLabel" destination="in0-TX-dU9" id="p3K-LJ-r2f"/>
-                        <outlet property="scrollView" destination="SVA-yO-mGt" id="z7c-l9-3wl"/>
                         <outlet property="titleLabel" destination="kdv-Jg-Rgp" id="z33-eK-Xa2"/>
                     </connections>
                 </viewController>
@@ -462,6 +467,6 @@
         <image name="ticket_tabbar_icon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LBm-jv-nMU"/>
+        <segue reference="Elz-lp-U5t"/>
     </inferredMetricsTieBreakers>
 </document>

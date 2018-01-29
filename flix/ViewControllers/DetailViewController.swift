@@ -16,7 +16,6 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var titleLabel: TopAlignedLabel!
     @IBOutlet weak var releaseDateLabel: UILabel!
     @IBOutlet weak var overviewLabel: TopAlignedLabel!
-    @IBOutlet weak var scrollView: UIScrollView!
     
     
     var movie: [String: Any]?
@@ -33,10 +32,10 @@ class DetailViewController: UIViewController {
             overviewLabel.text = movie["overview"] as? String
             
             //adjust overview label size and scroll view if neccessary
-            overviewLabel.sizeToFit()
-            let contentHeight = overviewLabel.frame.height + 390
-            let contentWidth = scrollView.bounds.width
-            scrollView.contentSize = CGSize(width: contentWidth, height: contentHeight)
+//            overviewLabel.sizeToFit()
+//            let contentHeight = overviewLabel.frame.height + 390
+//            let contentWidth = scrollView.bounds.width
+//            scrollView.contentSize = CGSize(width: contentWidth, height: contentHeight)
 
 
             //setup images
@@ -46,6 +45,7 @@ class DetailViewController: UIViewController {
             
             let backdropURL = URL(string: basePath + backdropPath)!
             backDropImageView.af_setImage(withURL: backdropURL)
+            backDropImageView.layer.zPosition = -5;
             
             let posterURL = URL(string: basePath + posterPath)!
             posterImageView.af_setImage(withURL: posterURL)

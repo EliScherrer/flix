@@ -18,18 +18,18 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var overviewLabel: TopAlignedLabel!
     
     
-    var movie: [String: Any]?
+    var movie: Movie?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-
+    
         if let movie = movie {
             //dymaically set label values
-            titleLabel.text = movie["title"] as? String
-            releaseDateLabel.text = movie["release_date"] as? String
-            overviewLabel.text = movie["overview"] as? String
+            titleLabel.text = movie.title
+            releaseDateLabel.text = movie.releaseDate
+            overviewLabel.text = movie.overview
             
             //adjust overview label size and scroll view if neccessary
 //            overviewLabel.sizeToFit()
@@ -39,16 +39,10 @@ class DetailViewController: UIViewController {
 
 
             //setup images
-            let backdropPath = movie["backdrop_path"] as! String
-            let posterPath = movie["poster_path"] as! String
-            let basePath = "https://image.tmdb.org/t/p/w500"
-            
-            let backdropURL = URL(string: basePath + backdropPath)!
-            backDropImageView.af_setImage(withURL: backdropURL)
+            backDropImageView.af_setImage(withURL: movie.backdropUrl!)
             backDropImageView.layer.zPosition = -5;
             
-            let posterURL = URL(string: basePath + posterPath)!
-            posterImageView.af_setImage(withURL: posterURL)
+            posterImageView.af_setImage(withURL: movie.posterUrl!)
             
         }
 

@@ -12,8 +12,7 @@ class PopularViewController: UIViewController, UICollectionViewDataSource {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var movies: [[String: Any]] = []
-    
+    var movies: [Movie] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,12 +47,10 @@ class PopularViewController: UIViewController, UICollectionViewDataSource {
     // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PosterCell", for: indexPath) as! PosterCell
+        
         let movie = movies[indexPath.item]
-        if let posterPathString = movie["poster_path"] as? String {
-            let basePath = "https://image.tmdb.org/t/p/w500"
-            let posterURL = URL(string: basePath + posterPathString)!
-            cell.posterImageView.af_setImage(withURL: posterURL)
-        }
+        cell.posterImageView.af_setImage(withURL: movie.posterUrl!)
+
         return cell
         
     }
@@ -69,11 +66,16 @@ class PopularViewController: UIViewController, UICollectionViewDataSource {
                 print(error.localizedDescription)
             }
             else if let data = data {
+
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                let movieDictionaries = dataDictionary["results"] as! [[String: Any]]
                 
-                let movies = dataDictionary["results"] as! [[String: Any]]
-                self.movies = movies
-                self.collectionView.reloadData()
+                self.movies = []
+                for dictionary in movieDictionaries {
+                    let movie = Movie(dictionary: dictionary)
+                    self.movies.append(movie)
+                }
+                
 //                self.refreshControl.endRefreshing()
 //                self.activityIndicator.stopAnimating()
                 

@@ -134,7 +134,7 @@ The following **required** user stories are complete:
 
 Here's a walkthrough of implemented user stories:
 
-![Imgur](https://i.imgur.com/W7kYDK9.gif)
+![Imgur](https://i.imgur.com/MxD0jtW.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
